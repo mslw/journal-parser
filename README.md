@@ -21,7 +21,8 @@ The search will take a few seconds and the closest match will be reported.
 ### Example usage & output
 ```
 $ python search.py "Frontiers of Neuroscience"
-UIC 6856
+ISSN 1662-453X
+eISSN 1662-453X
 Tytuł 1: Frontiers in Neuroscience
 Tytuł 2: Frontiers in Neuroscience
 Punkty: 100

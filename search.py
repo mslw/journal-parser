@@ -8,12 +8,12 @@ def colFix(x):
     if type(x) is int:
         return 'd{}'.format(x)
     else:
-        return x.replace('.', '').replace(' ', '')
+        return x.replace('.', '').replace(' ', '').replace('-', '')
 
-    
+
 def prepareTable(excel_file, feather_file):
     """Read excel table and save it to feather for faster access"""
-    table = pandas.read_excel(excel_file, skiprows=1)
+    table = pandas.read_excel(excel_file, skiprows=3)
     table.columns = table.columns.map(colFix)
     table.to_feather(feather_file)
 
@@ -29,7 +29,8 @@ def findJournal(title, table):
 def printFormatted(match):
     """Print relevant information from table row"""
     isBio = 'TAK' if match.d604 == 'x' else 'NIE'
-    print('UIC', match.UnikatowyIdentyfikatorCzasopisma)
+    print('ISSN', match.issn)
+    print('eISSN', match.eissn)
     print('Tytuł 1:', match.Tytuł1)
     print('Tytuł 2:', match.Tytuł2)
     print('Punkty:', match.Punkty)
